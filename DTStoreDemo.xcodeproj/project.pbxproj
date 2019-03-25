@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		94A7198922325AE500CC183E /* emoji_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 94A7198722325AE500CC183E /* emoji_error.png */; };
 		94A7198A22325AE500CC183E /* emoji_loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 94A7198822325AE500CC183E /* emoji_loading.png */; };
-		94A7198E22325B5800CC183E /* DongTuStoreSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94A7198C22325B5800CC183E /* DongTuStoreSDK.bundle */; };
 		94A7198F22325B5800CC183E /* DongtuStoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7198D22325B5800CC183E /* DongtuStoreSDK.framework */; };
 		94BB10CF222935DC00DABBD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB10CE222935DC00DABBD3 /* AppDelegate.m */; };
 		94BB10D2222935DC00DABBD3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB10D1222935DC00DABBD3 /* ViewController.m */; };
@@ -110,13 +109,13 @@
 		94BB11E1222942A200DABBD3 /* DTChatViewImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB11DC222942A200DABBD3 /* DTChatViewImageCell.m */; };
 		94BB11E2222942A200DABBD3 /* DTChatViewTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB11DD222942A200DABBD3 /* DTChatViewTextCell.m */; };
 		94BB11E6222942AE00DABBD3 /* ChatMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB11E5222942AE00DABBD3 /* ChatMessage.m */; };
+		94D0065F224887EE00A9163B /* DongtuStoreSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94D0065E224887EE00A9163B /* DongtuStoreSDK.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		94A7197122310D8200CC183E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		94A7198722325AE500CC183E /* emoji_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emoji_error.png; sourceTree = "<group>"; };
 		94A7198822325AE500CC183E /* emoji_loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emoji_loading.png; sourceTree = "<group>"; };
-		94A7198C22325B5800CC183E /* DongTuStoreSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DongTuStoreSDK.bundle; sourceTree = "<group>"; };
 		94A7198D22325B5800CC183E /* DongtuStoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DongtuStoreSDK.framework; sourceTree = "<group>"; };
 		94BB10CA222935DC00DABBD3 /* DTStoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTStoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BB10CD222935DC00DABBD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -229,6 +228,7 @@
 		94BB11DD222942A200DABBD3 /* DTChatViewTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DTChatViewTextCell.m; sourceTree = "<group>"; };
 		94BB11E4222942AE00DABBD3 /* ChatMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessage.h; sourceTree = "<group>"; };
 		94BB11E5222942AE00DABBD3 /* ChatMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessage.m; sourceTree = "<group>"; };
+		94D0065E224887EE00A9163B /* DongtuStoreSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DongtuStoreSDK.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,7 +247,7 @@
 		94A7198B22325B5800CC183E /* DongtuStoreSDK */ = {
 			isa = PBXGroup;
 			children = (
-				94A7198C22325B5800CC183E /* DongTuStoreSDK.bundle */,
+				94D0065E224887EE00A9163B /* DongtuStoreSDK.bundle */,
 				94A7198D22325B5800CC183E /* DongtuStoreSDK.framework */,
 			);
 			path = DongtuStoreSDK;
@@ -504,9 +504,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				94BB10DA222935DD00DABBD3 /* LaunchScreen.storyboard in Resources */,
+				94D0065F224887EE00A9163B /* DongtuStoreSDK.bundle in Resources */,
 				94A7198A22325AE500CC183E /* emoji_loading.png in Resources */,
 				94BB10D7222935DD00DABBD3 /* Assets.xcassets in Resources */,
-				94A7198E22325B5800CC183E /* DongTuStoreSDK.bundle in Resources */,
 				94A7198922325AE500CC183E /* emoji_error.png in Resources */,
 				94BB10D5222935DC00DABBD3 /* Main.storyboard in Resources */,
 			);

@@ -27,7 +27,7 @@
     //menu
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(menuDidHide) name:UIMenuControllerWillHideMenuNotification object:nil];
-    [DongTuStore sharedInstance].delegate = _inputToolBar; //set SDK delegate
+    [DongtuStore sharedInstance].delegate = _inputToolBar; //set SDK delegate
 }
 
 - (void)menuDidHide {
@@ -37,7 +37,7 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [DongTuStore sharedInstance].delegate = nil;
+    [DongtuStore sharedInstance].delegate = nil;
 }
 
 - (void)viewDidLoad {
@@ -61,7 +61,7 @@
     
     _messagesArray = [[NSMutableArray alloc] initWithCapacity:0];
     
-    [[DongTuStore sharedInstance] shouldShowSearchPopupAboveView:_inputToolBar withInput:_inputToolBar.inputTextView];
+    [[DongtuStore sharedInstance] shouldShowSearchPopupAboveView:_inputToolBar withInput:_inputToolBar.inputTextView];
     
 }
 
@@ -94,7 +94,7 @@
 }
 
 - (void)tapToDismissKeyboard {
-    [[DongTuStore sharedInstance] switchToDefaultKeyboard];
+    [[DongtuStore sharedInstance] switchToDefaultKeyboard];
     _inputToolBar.emojiButton.selected = false;
     [self.view endEditing:true];
 }
@@ -182,10 +182,10 @@
     sender.selected = !sender.selected;
     if (sender.selected) {
         //attatch emoji keyboard
-        [[DongTuStore sharedInstance] attachEmotionKeyboardToInput:_inputToolBar.inputTextView];
+        [[DongtuStore sharedInstance] attachEmotionKeyboardToInput:_inputToolBar.inputTextView];
         
     }else{
-        [[DongTuStore sharedInstance] switchToDefaultKeyboard];
+        [[DongtuStore sharedInstance] switchToDefaultKeyboard];
     }
     [_inputToolBar.inputTextView becomeFirstResponder];
 }

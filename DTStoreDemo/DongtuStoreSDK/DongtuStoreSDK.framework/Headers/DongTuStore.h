@@ -70,11 +70,10 @@ typedef enum
  switched to default, you can set the status of the control that controls the status of keyboard if necessary
  */
 - (void)tapOverlay;
-
 @end
 
 
-@interface DongTuStore : NSObject
+@interface DongtuStore : NSObject
 
 /**
  *  SDK region  default:DTRegionChina

@@ -204,7 +204,7 @@
 - (void)tapOverlay
 {
     self.emojiButton.selected = false;
-    [[DongTuStore sharedInstance] switchToDefaultKeyboard];
+    [[DongtuStore sharedInstance] switchToDefaultKeyboard];
 }
 
 //Integrate BQMM

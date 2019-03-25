@@ -17,7 +17,7 @@ FOUNDATION_EXPORT const unsigned char DongtuStoreSDKVersionString[];
 // In this header, you should import all the public headers of your framework using statements like #import <DongtuStoreSDK/PublicHeader.h>
 
 
-#import "DongTuStore.h"
+#import "DongtuStore.h"
 #import "DTStoreTheme.h"
 #import "DTEmoji.h"
 #import "DTGif.h"

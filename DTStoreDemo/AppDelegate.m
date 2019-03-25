@@ -65,15 +65,17 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString *appId = @"";
     NSString *secret = @"";
     [[DongTuStore sharedInstance] setAppId:appId secret:secret];
-    [DongTuStore sharedInstance].sdkLanguage = DTLanguageChinese;
-    [DongTuStore sharedInstance].sdkRegion = DTRegionOther;
+    [DongtuStore sharedInstance].sdkLanguage = DTLanguageChinese;
+    [DongtuStore sharedInstance].sdkRegion = DTRegionOther;
+    
+
     
     DTUser *user = [[DTUser alloc] init];
     user.name = @"username";
     user.userId = @"33333333";
     user.email = @"user@gmail.com";
     user.otherInfo = @{@"region":@"China"};
-    [[DongTuStore sharedInstance] setUser:user];
+    [[DongtuStore sharedInstance] setUser:user];
 }
 
 @end

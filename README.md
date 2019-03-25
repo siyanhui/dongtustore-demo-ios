@@ -13,7 +13,7 @@
 
 ### 手动导入SDK
 
-下载当前最新版本，解压缩后获得： `DongtuStoreSDK`， 其中包含SDK和库文件`DongtuStoreSDK.framework`及所需的资源文件`DongTuStoreSDK.bundle`
+下载当前最新版本，解压缩后获得： `DongtuStoreSDK`， 其中包含SDK和库文件`DongtuStoreSDK.framework`及所需的资源文件`DongtuStoreSDK.bundle`
 
 
 ### 添加系统库依赖
@@ -40,13 +40,13 @@
 
 ```objectivec
 // 初始化SDK
-[[DongTuStore sharedInstance] setAppId:@"your app id" secret:@"your secret"];
+[[DongtuStore sharedInstance] setAppId:@"your app id" secret:@"your secret"];
 //设置SDK语言和区域
-[DongTuStore sharedInstance].sdkLanguage = DTLanguageChinese;
-[DongTuStore sharedInstance].sdkRegion = DTRegionChina;
+[DongtuStore sharedInstance].sdkLanguage = DTLanguageChinese;
+[DongtuStore sharedInstance].sdkRegion = DTRegionChina;
 ```
 
-### 1. 通过 `DongTuStore` 提供的接口查看 SDK 版本、设置用户
+### 1. 通过 `DongtuStore` 提供的接口查看 SDK 版本、设置用户
 
 - 查看 SDK 版本
 
@@ -77,7 +77,7 @@
 #### 设置SDK代理 
 使用联想功能、表情键盘和GIF搜索模块前需要设置代理，以接收SDK的事件
 ```objectivec
-[DongTuStore sharedInstance].delegate = self;
+[DongtuStore sharedInstance].delegate = self;
 ```
 
 #### 配置联想功能
@@ -99,7 +99,7 @@
 if (!_inputTextView.isFirstResponder) {
     [_inputTextView becomeFirstResponder];
 }
-[[DongTuStore sharedInstance] attachEmotionKeyboardToInput:_inputTextView];
+[[DongtuStore sharedInstance] attachEmotionKeyboardToInput:_inputTextView];
 ```
 
 #### 由表情键盘切换为普通键盘
@@ -107,7 +107,7 @@ if (!_inputTextView.isFirstResponder) {
 if (!_inputTextView.isFirstResponder) {
     [_inputTextView becomeFirstResponder];
 }
-[[DongTuStore sharedInstance] switchToDefaultKeyboard];
+[[DongtuStore sharedInstance] switchToDefaultKeyboard];
 ```
 
 #### 触发GIF搜索
@@ -292,13 +292,13 @@ imageView = [[DTImageView alloc] init];
 
 ### 6. UI定制
 SDK通过DTStoreTheme提供一定程度的UI定制。具体参考类说明DTStoreTheme。
-创建一个DTStoreTheme对象，设置相关属性， 然后[[DongTuStore sharedInstance] setTheme:]即可修改SDK UI的样式
+创建一个DTStoreTheme对象，设置相关属性， 然后[[DongtuStore sharedInstance] setTheme:]即可修改SDK UI的样式
 
 ### 7. 清除缓存
 调用clearCache方法清除缓存，此操作会删除所有临时的表情缓存，已下载的表情包不会被删除。
 
 ```objectivec
-[[DongTuStore sharedInstance] clearCache]
+[[DongtuStore sharedInstance] clearCache]
 ```
 
 
