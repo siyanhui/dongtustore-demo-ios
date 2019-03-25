@@ -29,7 +29,7 @@
 * `appId` - 应用的App ID
 * `appSecret` - 应用的App Secret
 
-如您暂未获得以上接入信息，可以在此[申请](http://open.biaoqingmm.com/open/register/index.html)
+如您暂未获得以上接入信息，可以在此[申请](http://www.biaoqingsdk.com/register.html)
 
 
 ## 第三步：开始集成
