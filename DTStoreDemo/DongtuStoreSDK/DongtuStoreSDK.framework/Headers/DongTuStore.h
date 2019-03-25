@@ -71,19 +71,6 @@ typedef enum
  */
 - (void)tapOverlay;
 
-@optional
-
-
-/**
- replace the emoji symbol in the emoji keybaord with a custome image
- */
-- (UIImage *)imageForEmojiSymbol:(nonnull NSString *)emojiSymbol;
-
-/**
- provide a custom image for the emoji tab icon
- */
-- (UIImage *)provideUnicodeEmojiTabIcon;
-
 @end
 
 

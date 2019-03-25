@@ -22,5 +22,4 @@ FOUNDATION_EXPORT const unsigned char DongtuStoreSDKVersionString[];
 #import "DTEmoji.h"
 #import "DTGif.h"
 #import "DTUser.h"
-#import "UITextView+BQMM.h"
 #import "DTImageView.h"
