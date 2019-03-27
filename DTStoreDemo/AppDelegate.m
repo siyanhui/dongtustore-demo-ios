@@ -64,7 +64,7 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 - (void)initSDK {
     NSString *appId = @"";
     NSString *secret = @"";
-    [[DongTuStore sharedInstance] setAppId:appId secret:secret];
+    [[DongtuStore sharedInstance] setAppId:appId secret:secret];
     [DongtuStore sharedInstance].sdkLanguage = DTLanguageChinese;
     [DongtuStore sharedInstance].sdkRegion = DTRegionOther;
     
