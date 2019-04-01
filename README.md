@@ -226,7 +226,7 @@ if (!_inputTextView.isFirstResponder) {
     //2.构造消息的扩展信息
     NSDictionary *extDic = @{
         @"txt_msgType":@"facetype",                             //配置自定义消息类型
-        @"msg_data":[DTTextParser extDataWithEmoji:emoji]};     //消息扩展
+        @"msg_data":@[@[emoji.emojiCode, @(2)]]};     //消息扩展
 
     
     //3.构造消息
