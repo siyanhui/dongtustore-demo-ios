@@ -49,7 +49,7 @@ typedef enum
 /**
  handle the click of gif in the gif keyboard and gif popupview
  */
-- (void)didSelectGif:(DTGif *)gif;
+- (void)didSelectGif:(nonnull DTGif *)gif;
 
 /**
  *  the delegate method handles the selection of big emoji in the keyboard
@@ -70,6 +70,7 @@ typedef enum
  switched to default, you can set the status of the control that controls the status of keyboard if necessary
  */
 - (void)tapOverlay;
+
 @end
 
 
@@ -162,17 +163,6 @@ typedef enum
  *  @param enable       enable
  */
 - (void)setUnicodeEmojiTabEnabled: (BOOL)enable;
-
-/**
- *  fetch emojis according to emoji type and emoji code
- *
- *  @param fetchType         emoji type
- *  @param emojiCodes        a collection of emoji code
- *  @param completionHandler complition handler  emojis: a collection of MMEmoji or error object
- */
-- (void)fetchEmojisByType:(DTFetchType)fetchType
-                    codes:(nonnull NSArray *)emojiCodes
-        completionHandler:(void (^ __nullable )(NSArray * __nullable emojis))completionHandler;
 
 /**
  *  clear cache
