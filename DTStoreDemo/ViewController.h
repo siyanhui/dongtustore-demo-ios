@@ -7,14 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DTInputToolBarView.h"
-#import "DTChatViewBaseCell.h"
-#import "ChatMessage.h"
+@interface ViewController : UIViewController
 
-@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource, RCMessageCellDelegate, MMInputToolBarViewDelegate>
-
-@property(strong, nonatomic) UITableView *messagesTableView;
-@property(strong, nonatomic) DTInputToolBarView *inputToolBar;
-@property(strong, nonatomic) UILabel *messageLabel;
 
 @end

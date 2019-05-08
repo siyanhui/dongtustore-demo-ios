@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import <DongtuStoreSDK/DongtuStoreSDK.h>
 #import "ViewController.h"
+#import "StoreDemoViewController.h"
 
 @interface AppDelegate ()
 
@@ -68,14 +69,14 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [DongtuStore sharedInstance].sdkLanguage = DTLanguageChinese;
     [DongtuStore sharedInstance].sdkRegion = DTRegionOther;
     
-
-    
     DTUser *user = [[DTUser alloc] init];
     user.name = @"username";
     user.userId = @"33333333";
     user.email = @"user@gmail.com";
     user.otherInfo = @{@"region":@"China"};
     [[DongtuStore sharedInstance] setUser:user];
+
+    
 }
 
 @end

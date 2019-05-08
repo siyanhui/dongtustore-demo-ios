@@ -216,6 +216,8 @@
     self.inputTextView.text = @"";
     _inputTextViewHeight = TEXTVIEW_MIN_HEIGHT;
     [self relayout];
+    
+    [[DongtuStore sharedInstance] dismissSearchPopup];
 }
 
 - (void)relayout{

@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		944C157D2282A71B004A828D /* StoreDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 944C157C2282A71B004A828D /* StoreDemoViewController.m */; };
+		944C157F2282AC47004A828D /* DongtuStoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 944C157E2282AC47004A828D /* DongtuStoreSDK.framework */; };
 		94A7198922325AE500CC183E /* emoji_error.png in Resources */ = {isa = PBXBuildFile; fileRef = 94A7198722325AE500CC183E /* emoji_error.png */; };
 		94A7198A22325AE500CC183E /* emoji_loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 94A7198822325AE500CC183E /* emoji_loading.png */; };
-		94A7198F22325B5800CC183E /* DongtuStoreSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A7198D22325B5800CC183E /* DongtuStoreSDK.framework */; };
 		94BB10CF222935DC00DABBD3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB10CE222935DC00DABBD3 /* AppDelegate.m */; };
 		94BB10D2222935DC00DABBD3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BB10D1222935DC00DABBD3 /* ViewController.m */; };
 		94BB10D5222935DC00DABBD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94BB10D3222935DC00DABBD3 /* Main.storyboard */; };
@@ -113,10 +114,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		944C157B2282A71B004A828D /* StoreDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StoreDemoViewController.h; sourceTree = "<group>"; };
+		944C157C2282A71B004A828D /* StoreDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StoreDemoViewController.m; sourceTree = "<group>"; };
+		944C157E2282AC47004A828D /* DongtuStoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DongtuStoreSDK.framework; sourceTree = "<group>"; };
 		94A7197122310D8200CC183E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		94A7198722325AE500CC183E /* emoji_error.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emoji_error.png; sourceTree = "<group>"; };
 		94A7198822325AE500CC183E /* emoji_loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emoji_loading.png; sourceTree = "<group>"; };
-		94A7198D22325B5800CC183E /* DongtuStoreSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DongtuStoreSDK.framework; sourceTree = "<group>"; };
 		94BB10CA222935DC00DABBD3 /* DTStoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DTStoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94BB10CD222935DC00DABBD3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94BB10CE222935DC00DABBD3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -236,7 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94A7198F22325B5800CC183E /* DongtuStoreSDK.framework in Frameworks */,
+				944C157F2282AC47004A828D /* DongtuStoreSDK.framework in Frameworks */,
 				94BB10F72229361C00DABBD3 /* libsqlite3.0.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -247,8 +250,8 @@
 		94A7198B22325B5800CC183E /* DongtuStoreSDK */ = {
 			isa = PBXGroup;
 			children = (
+				944C157E2282AC47004A828D /* DongtuStoreSDK.framework */,
 				94D0065E224887EE00A9163B /* DongtuStoreSDK.bundle */,
-				94A7198D22325B5800CC183E /* DongtuStoreSDK.framework */,
 			);
 			path = DongtuStoreSDK;
 			sourceTree = "<group>";
@@ -288,6 +291,8 @@
 				94BB10D8222935DD00DABBD3 /* LaunchScreen.storyboard */,
 				94BB10DB222935DD00DABBD3 /* Info.plist */,
 				94BB10DC222935DD00DABBD3 /* main.m */,
+				944C157B2282A71B004A828D /* StoreDemoViewController.h */,
+				944C157C2282A71B004A828D /* StoreDemoViewController.m */,
 			);
 			path = DTStoreDemo;
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				94BB11B82229417800DABBD3 /* UIView+WebCacheOperation.h in Sources */,
 				94BB11DF222942A200DABBD3 /* EditTextView.m in Sources */,
 				94BB11B92229417800DABBD3 /* MKAnnotationView+WebCache.h in Sources */,
+				944C157D2282A71B004A828D /* StoreDemoViewController.m in Sources */,
 				94BB11BA2229417800DABBD3 /* UIImage+WebP.h in Sources */,
 				94BB11BB2229417800DABBD3 /* SDWebImageFrame.h in Sources */,
 				94BB11BC2229417800DABBD3 /* UIImageView+HighlightedWebCache.h in Sources */,
@@ -767,6 +773,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = siyanhui.DTStoreDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -784,12 +791,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/DTStoreDemo/DongtuStoreSDK",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = DTStoreDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = siyanhui.DTStoreDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
