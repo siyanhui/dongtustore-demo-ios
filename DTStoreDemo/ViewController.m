@@ -48,7 +48,7 @@
     _infoLabel = [UILabel new];
     _infoLabel.backgroundColor = [UIColor clearColor];
     _infoLabel.textColor = [UIColor colorWithWhite:74.0 / 255 alpha:1.0];
-    _infoLabel.text = @"动图SDK Demo";
+    _infoLabel.text = @"动图商店SDK Demo";
     _infoLabel.font = [UIFont systemFontOfSize:20];
     _infoLabel.textAlignment = NSTextAlignmentRight;
     [_headerContainerView addSubview:_infoLabel];
@@ -75,7 +75,8 @@
     _versionLabel = [UILabel new];
     _versionLabel.backgroundColor = [UIColor clearColor];
     _versionLabel.textColor = [UIColor colorWithWhite:155.0 / 255 alpha:1.0];
-    _versionLabel.text = @"版本 V1.2";
+    _versionLabel.text = [NSString stringWithFormat:@"SDK:%@  Build: %@", [[DongtuStore sharedInstance] version],
+                          [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleVersion"]];
     _versionLabel.font = [UIFont systemFontOfSize:12];
     _versionLabel.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:_versionLabel];

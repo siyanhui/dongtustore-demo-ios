@@ -50,9 +50,4 @@
  */
 @property (nonatomic, assign) BOOL isAnimated;
 
-/**
- *  是否是可看性动图
- */
-@property (nonatomic, assign) BOOL isTmpAdGif;
-
 @end
