@@ -369,4 +369,78 @@
  */
 @property (nonatomic, strong, nullable) UIColor *emojiTitle2Color;
 
+
+//about gif keyboard
+/**
+ gif keyboard => hot word button title button
+ */
+@property (nonatomic, strong, nullable) UIFont *gifKeyboardHotWordButtonTitleFont;
+/**
+ gif keyboard => hot word button title color
+ */
+@property (nonatomic, strong, nullable) UIColor *gifKeyboardHotWordButtonTitleColor;
+/**
+ gif keyboard => hot word button background color
+ */
+@property (nonatomic, strong, nullable) UIColor *gifKeyboardHotWordButtonBgColor;
+/**
+ gif keyboard => hot word button border color
+ */
+@property (nonatomic, strong, nullable) UIColor *gifKeyboardHotWordButtonBorderColor;
+/**
+ gif keyboard => hot word button border width
+ */
+@property (nonatomic, assign) CGFloat gifKeyboardHotWordButtonBorderWidth;
+/**
+ gif keyboard => hot word button corner radius
+ */
+@property (nonatomic, assign) CGFloat gifKeyboardHotWordButtonCornerRadius;
+
+/**
+ gif keyboard => search bar text font
+ */
+@property (nonatomic, strong, nullable) UIFont *gifKeyboardSearchBarTextFont;
+/**
+ gif keyboard => search bar text color
+ */
+@property (nonatomic, strong, nullable) UIColor *gifKeyboardSearchBarTextColor;
+/**
+ gif keyboard => search bar background color
+ */
+@property (nonatomic, strong, nullable) UIColor *gifKeyboardSearchBarBgColor;
+/**
+ gif keyboard => search bar border color
+ */
+@property (nonatomic, strong, nullable) UIColor *gifKeyboardSearchBarBorderColor;
+/**
+ gif keyboard => search bar border width
+ */
+@property (nonatomic, assign) CGFloat gifKeyboardSearchBarBorderWidth;
+/**
+ gif keyboard => search bar corner radius
+ */
+@property (nonatomic, assign) CGFloat gifKeyboardSearchBarCornerRadius;
+
+
+//about collection
+
+/**
+ collection manage page => manage button title color
+ */
+@property (nonatomic, strong, nullable) UIColor *collectionManageButtonTitleColor;
+
+/**
+ collection manage page => manage finish button title color
+ */
+@property (nonatomic, strong, nullable) UIColor *collectionManageFinishButtonTitleColor;
+
+/**
+ collection manage page => top button title color
+ */
+@property (nonatomic, strong, nullable) UIColor *collectionManageTopButtonTitleColor;
+
+/**
+ collection manage page => delete button title color
+ */
+@property (nonatomic, strong, nullable) UIColor *collectionManageDeleteButtonTitleColor;
 @end

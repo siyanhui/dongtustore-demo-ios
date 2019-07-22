@@ -11,7 +11,7 @@
 #import "DTEmoji.h"
 #import "DTGif.h"
 #import "DTUser.h"
-
+#import "DTError.h"
 /**
  sdk region
  */
@@ -163,6 +163,59 @@ typedef enum
  *  @param enable       enable
  */
 - (void)setUnicodeEmojiTabEnabled: (BOOL)enable;
+
+/**
+ 查看是否已经收藏了emoji
+ 
+ @param emojiCode DTEmoji对象的emojiCode
+ */
+-(BOOL)hasCollectedDTEmojiWithEmojiCode:(NSString *_Nonnull)emojiCode;
+
+/**
+查看是否已经收藏了gif
+
+ @param gifUrl DTGif对象的mainImage
+ @param gifId DTGif对象的imageId
+ */
+-(BOOL)hasCollectedDTGifWithGifUrl:(NSString *_Nonnull)gifUrl andGifId:(NSString *_Nonnull)gifId;
+
+/**
+ 取消收藏emoji
+
+ @param emojiCode DTEmoji对象的emojiCode
+ @param completionHandler 结果回调函数
+ */
+-(void)uncollectDTEmojiWithEmojiCode:(NSString *_Nonnull)emojiCode
+                   completionHandler:(void (^_Nonnull)(BOOL result, DTError * _Nullable error))completionHandler;
+
+/**
+ 取消收藏gif
+
+ @param gifUrl DTGif对象的mainImage
+ @param gifId DTGif对象的imageId
+ @param completionHandler 结果回调函数
+ */
+-(void)uncollectDTGifWithGifUrl:(NSString *_Nonnull)gifUrl andGifId:(NSString *_Nonnull)gifId
+              completionHandler:(void (^_Nonnull)(BOOL result, DTError * _Nullable error))completionHandler;
+
+/**
+ 收藏emoji
+
+ @param emojiCode DTEmoji对象的emojiCode
+ @param completionHandler 结果回调函数
+ */
+-(void)collectDTEmojiWithEmojiCode:(NSString *_Nonnull)emojiCode
+                 completionHandler:(void (^_Nonnull)(BOOL result, DTError * _Nullable error))completionHandler;
+
+/**
+ 收藏gif
+ 
+ @param gifUrl DTGif对象的mainImage
+ @param gifId DTGif对象的imageId
+ @param completionHandler 结果回调函数
+ */
+-(void)collectDTGifWithGifUrl:(NSString *_Nonnull)gifUrl andGifId:(NSString *_Nonnull)gifId
+            completionHandler:(void (^_Nonnull)(BOOL result, DTError * _Nullable error))completionHandler;
 
 /**
  *  clear cache

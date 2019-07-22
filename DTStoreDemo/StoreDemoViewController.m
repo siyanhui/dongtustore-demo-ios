@@ -11,7 +11,7 @@
 #import "ChatMessage.h"
 #import <DongtuStoreSDK/DongtuStoreSDK.h>
 #import "Masonry.h"
-
+#import "MBProgressHUD.h"
 @interface StoreDemoViewController (){
     NSMutableArray *_messagesArray;
     ChatMessage *_longPressSelectedModel;
@@ -76,28 +76,29 @@
     //        make.edges.equalTo(self.view.mas_safeAreaLayoutGuide);
     //    }];
     
-//    UIButton *testButton = [[UIButton alloc] init];
-//    testButton.backgroundColor = [UIColor blueColor];
-//    [testButton setTitle:@"setUser" forState:UIControlStateNormal];
-//    [testButton addTarget:self action:@selector(testButtonClicked) forControlEvents:UIControlEventTouchUpInside];
-//    [self.view addSubview:testButton];
-//    [testButton mas_makeConstraints:^(MASConstraintMaker *make) {
-//        make.left.equalTo(self.view).offset(15);
-//        make.width.equalTo(@60);
-//        make.height.equalTo(@30);
-//        make.top.equalTo(self.view).offset(120);
-//    }];
+    UIButton *testButton = [[UIButton alloc] init];
+    testButton.backgroundColor = [UIColor blueColor];
+    [testButton setTitle:@"切换用户" forState:UIControlStateNormal];
+    [testButton addTarget:self action:@selector(testButtonClicked) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:testButton];
+    [testButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.view).offset(15);
+        make.width.equalTo(@120);
+        make.height.equalTo(@30);
+        make.top.equalTo(self.view).offset(120);
+    }];
     
 }
 
-//- (void)testButtonClicked {
-//    DTUser *user = [[DTUser alloc] init];
-//    user.name = @"username";
-//    user.userId = @"33333333";
-//    user.email = @"user@gmail.com";
-//    user.otherInfo = @{@"region":@"China"};
-//    [[DongtuStore sharedInstance] setUser:user];
-//}
+- (void)testButtonClicked {
+    DTUser *user = [[DTUser alloc] init];
+    user.name = @"username11";
+    user.userId = @"3333333311";
+    user.email = @"user@gmail11.com";
+    user.otherInfo = @{@"region":@"China1"};
+    user.gender = 1;
+    [[DongtuStore sharedInstance] setUser:user];
+}
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
@@ -291,17 +292,55 @@
 
 - (void)didLongPressChatViewCell:(ChatMessage *)messageModel inView:(UIView *)view {
     _inputToolBar.inputTextView.disableActionMenu = YES;
-    
+
     _longPressSelectedModel = messageModel;
-    
+
     CGRect rect = [self.view convertRect:view.frame fromView:view.superview];
-    
+
     _menuController = [UIMenuController sharedMenuController];
     UIMenuItem *copyItem = [[UIMenuItem alloc]
                             initWithTitle:@"Copy"
                             action:@selector(onCopyMessage)];
+
+    NSString *title;
+    NSDictionary *extDic = messageModel.messageExtraInfo;
+    if (messageModel.messageType == MMMessageTypeBigEmoji) {
+        NSArray *codes = nil;
+        if (extDic[TEXT_MESG_DATA]) {
+            codes = @[extDic[TEXT_MESG_DATA][0][0]];
+        }
+        if (codes.count > 0) {
+            NSString *emojiCode = codes.firstObject;
+            if (emojiCode != nil && emojiCode.length > 0) {
+                if([[DongtuStore sharedInstance] hasCollectedDTEmojiWithEmojiCode:emojiCode]) {
+                    title = @"取消收藏";
+                }else{
+                    title = @"收藏";
+                }
+            }
+        }
+    } else if(messageModel.messageType == MMMessageTypeWebSticker) {
+        NSDictionary *msgData = extDic[TEXT_MESG_DATA];
+        NSString *gifUrl = msgData[WEBSTICKER_URL];
+        NSString *gifId = msgData[WEBSTICKER_ID];
+        if (gifId && gifUrl && gifId.length > 0 && gifUrl.length > 0) {
+            if([[DongtuStore sharedInstance] hasCollectedDTGifWithGifUrl:gifUrl andGifId:gifId]) {
+                title = @"取消收藏";
+            }else{
+                title = @"收藏";
+            }
+        }
+    }
+
     [_menuController setMenuItems:nil];
-    [_menuController setMenuItems:@[ copyItem ]];
+    if (title) {
+        UIMenuItem *collectItem = [[UIMenuItem alloc]
+                                   initWithTitle:title
+                                   action:@selector(onCollectEmoji)];
+        [_menuController setMenuItems:@[ copyItem, collectItem ]];
+    }else{
+        [_menuController setMenuItems:@[ copyItem ]];
+    }
     [_menuController setTargetRect:rect inView:self.view];
     [_menuController setMenuVisible:YES animated:YES];
 }
@@ -313,6 +352,89 @@
 - (void)onCopyMessage {
     UIPasteboard *pasteboard = [UIPasteboard generalPasteboard];
     pasteboard.string = _longPressSelectedModel.messageContent;
+}
+
+- (void)onCollectEmoji {
+    NSDictionary *extDic = _longPressSelectedModel.messageExtraInfo;
+    if (_longPressSelectedModel.messageType == MMMessageTypeBigEmoji) {
+        NSArray *codes = nil;
+        if (extDic[TEXT_MESG_DATA]) {
+            codes = @[extDic[TEXT_MESG_DATA][0][0]];
+        }
+        if (codes && codes.count > 0) {
+            NSString *emojiCode = codes.firstObject;
+            if (emojiCode != nil && emojiCode.length > 0) {
+                if([[DongtuStore sharedInstance] hasCollectedDTEmojiWithEmojiCode:emojiCode]) {
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    [[DongtuStore sharedInstance] uncollectDTEmojiWithEmojiCode:emojiCode completionHandler:^(BOOL result, DTError * _Nullable error) {
+                        if (result) {
+                            hud.label.text = @"取消收藏成功";
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                [hud hideAnimated:YES];
+                            });
+                        }else{
+                            hud.label.text = error.errorMessage;
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                [hud hideAnimated:YES];
+                            });
+                        }
+                    }];
+                }else{
+                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                    [[DongtuStore sharedInstance] collectDTEmojiWithEmojiCode:emojiCode completionHandler:^(BOOL result, DTError * _Nullable error) {
+                        if (result) {
+                            hud.label.text = @"收藏成功";
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                [hud hideAnimated:YES];
+                            });
+                        }else{
+                            hud.label.text = error.errorMessage;
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                                [hud hideAnimated:YES];
+                            });
+                        }
+                    }];
+                }
+            }
+        }
+    }else if(_longPressSelectedModel.messageType == MMMessageTypeWebSticker) {
+        NSDictionary *msgData = extDic[TEXT_MESG_DATA];
+        NSString *gifUrl = msgData[WEBSTICKER_URL];
+        NSString *gifId = msgData[WEBSTICKER_ID];
+        if (gifId && gifUrl && gifId.length > 0 && gifUrl.length > 0) {
+            if([[DongtuStore sharedInstance] hasCollectedDTGifWithGifUrl:gifUrl andGifId:gifId]) {
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                [[DongtuStore sharedInstance] uncollectDTGifWithGifUrl:gifUrl andGifId:gifId completionHandler:^(BOOL result, DTError * _Nullable error) {
+                    if (result) {
+                        hud.label.text = @"取消收藏成功";
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [hud hideAnimated:YES];
+                        });
+                    }else{
+                        hud.label.text = error.errorMessage;
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [hud hideAnimated:YES];
+                        });
+                    }
+                }];
+            }else{
+                MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                [[DongtuStore sharedInstance] collectDTGifWithGifUrl:gifUrl andGifId:gifId completionHandler:^(BOOL result, DTError * _Nullable error) {
+                    if (result) {
+                        hud.label.text = @"收藏成功";
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [hud hideAnimated:YES];
+                        });
+                    }else{
+                        hud.label.text = error.errorMessage;
+                        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                            [hud hideAnimated:YES];
+                        });
+                    }
+                }];
+            }
+        }
+    }
 }
 
 - (void)didTapPhoneNumberInMessageCell:(NSString *)phoneNumber {
