@@ -21,7 +21,7 @@
 }
 
 - (void)setView {
-    
+    self.contentView.backgroundColor = [UIColor whiteColor];
     _avatarView = [[UIImageView alloc] init];
     _avatarView.contentMode = UIViewContentModeScaleAspectFill;
     _avatarView.backgroundColor = [UIColor grayColor];

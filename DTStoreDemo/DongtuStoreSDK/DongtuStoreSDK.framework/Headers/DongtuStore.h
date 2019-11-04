@@ -115,7 +115,7 @@ typedef enum
 /**
  set user infomation
  */
-- (void)setUser:(DTUser *)user;
+- (void)setUser:(DTUser *_Nonnull)user;
 
 
 /**

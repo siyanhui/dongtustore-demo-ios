@@ -103,6 +103,8 @@
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"cell"];
     cell.textLabel.font = [UIFont systemFontOfSize:18];
     cell.detailTextLabel.font = [UIFont systemFontOfSize:18];
+    cell.backgroundColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor blackColor];
     if (indexPath.row == 0) {
         cell.textLabel.text = @"动图SDK Demo";
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
