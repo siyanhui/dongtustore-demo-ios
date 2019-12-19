@@ -117,6 +117,10 @@ typedef enum
  */
 - (void)setUser:(DTUser *_Nonnull)user;
 
+/**
+ *  Display shop view controller
+ */
+- (void)presentShopViewController;
 
 /**
  *  set the skin of SDK
